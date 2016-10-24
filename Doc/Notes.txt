@@ -1,0 +1,21 @@
+20161020
+
+移植L3G4200D
+1.  全部I2CDev的操作替换为i2c.h 的函数
+2.  添加两条空函数
+	void I2C_Write_One_Byte(u8 daddr,u8 addr,u8 data);
+	u8 I2C_Read_One_Byte(u8 daddr,u8 addr);
+
+20161021
+1.  完成L3G4200D 寄存器读写配置的移植
+    所有存取均使用SE_L3G4200D_HandleTypeDef句柄访问，主程序
+	需要实现SE_L3G4200D_HandleTypeDef的实体。
+	
+2.  添加IMC.c和IMU.h 
+    所有对IMU传感器的初始化和数据处理都在IMU进行。
+	
+20161022
+1.  移植ADXL345
+2.	添加空函数
+	I2C_Read_Multi_Bytes(uint8_t iMainAddr, uint8_t iSubAddr, uint8_t iCount, uint8_t	*pData);
+	
